@@ -1,0 +1,218 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="security.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<header>
+    <div class="logo">
+        <a href="#"><img src="Untitled design (3).png" ></a>
+    </div>
+                <button class="b pic"><i class="fa-regular fa-circle-question me-8"></i></button>
+                <button class="b pic" onclick="toggleMenu()">
+                    <i class="fa-regular fa-circle-user me-8"></i>
+                </button> 
+                <div class="sub-menu-wrap" id="submenu">
+                    <div class="sub-menu">
+                        <div class="user-info" id="user-info">
+                            <img src="images.jpg" class="rounded-circle" id="user-image" >
+                            <!-- <img src="images.jpg" class="rounded-circle" id="user-image"> -->
+                            <p id="user-name"></p>
+                            <p id="user-email"></p>
+                            <hr>
+                        </div> 
+                                <div class="link" style="background-color:white;">
+                                    <button id="generalButton"><i class="fa-regular fa-circle-user me-8"></i><p>General information</p>
+                                    </button>
+                                    <button onclick="goToPage('security.html')"><i class="fa-solid fa-shield"></i><p>Security</p></button>
+                                    <button class="view-modal" onclick="togglePopup()"><i class="fa-solid fa-share-nodes"></i><p>Invite a friend</p></button>
+                                    <div class="popup" style="background:#fafafa">
+                                        <header>
+                                          <span style="margin-left: 140px;">Share</span>
+                                          <div class="close">
+                                              <i class="fa-solid fa-x" style="margin-left: 3px;"></i>
+                                            </div>
+                                        </header>
+                                        <div class="content">
+                                            <p style="margin-left: -3px;">Invite friend via</p>
+                                            <ul class="icons">
+                                                <a href="#" id="facebook-link"><i class="fab fa-facebook-f"></i></a>
+                                                <a href="#" id="twitter-link"><i class="fab fa-twitter"></i></a>
+                                                <a href="#" id="email-link"><i class="fa-solid fa-envelope"></i></a>
+                                                <a href="#" id="whatsapp-link"><i class="fab fa-whatsapp"></i></a>
+                                                <a href="#" id="telegram-link"><i class="fab fa-telegram-plane"></i></a>
+                                            </ul>                                                
+                                            <p style=" text-align: center;">or copy link</p>
+                                            <div class="field">
+                                             <i class="fa-regular fa-copy"></i>
+                                              <input type="text" readonly value="share-link" s>
+                                              <button>Copy</button>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    <button onclick="goToPage('down.html')"><i class="fa-brands fa-google-play"></i><p>Download app</p></button>
+                                    <button onclick="openRatingBox()"><i style="left:-4px" class="fa-regular fa-star"></i><p>Rate us</p></button>
+                                    <div id="ratingBox" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #fff; padding: 20px; border: 2px solid #ccc; box-shadow: 0 0 10px rgba(0,0,0,0.5); z-index: 9999;">
+                                        <h4 style="color: #C39126; margin-bottom: -10px;">Please Rate Us</h4>
+                                        <div class="rating">
+                                            <input type="radio" id="star5" name="rating" value="5" onclick="saveRating(this)">
+                                            <label for="star5"></label>
+                                            <input type="radio" id="star4" name="rating" value="4" onclick="saveRating(this)">
+                                            <label for="star4"></label>
+                                            <input type="radio" id="star3" name="rating" value="3" onclick="saveRating(this)">
+                                            <label for="star3"></label>
+                                            <input type="radio" id="star2" name="rating" value="2" onclick="saveRating(this)">
+                                            <label for="star2"></label>
+                                            <input type="radio" id="star1" name="rating" value="1" onclick="saveRating(this)">
+                                            <label for="star1"></label>
+                                        </div>
+                                        <button onclick="closeRatingBox()" style="color: white; width:70px; background-color: #C39126; border-radius: 10px;">Close</button>
+                                    </div>
+                                    <button onclick="goToPage('about.html')"><i style="margin-left:3px;" class="fa-solid fa-exclamation"></i><p style="margin-left:12px;">About us</p></button>
+                                    <!-- <button onclick="goToPage('help.html')"><i class="fa-regular fa-circle-question"></i><p>Help</p></button> -->
+                                    <hr>
+                                 <button id="signOutButton"><p style="margin-right: 10px;">Sign Out</p><i class="fa-solid fa-right-from-bracket"></i></button>
+                                </div>
+                            </div>
+                        </div>
+</header> </div><br>
+<body style="background-color:#fafafa;">
+    <div class="con">
+        <div class="main">
+            <div class="row">
+                <div class="col-md-4 mt-1">
+                        <img src="4042356.png" class="rounded-circle">
+                </div>
+                <div class="col-md mt-1 u"> 
+                    <h1>Security</h1>
+                    <p style="color:#37474F">Change your setting, set up secure authentication or delete your account.</p>
+                    <hr>
+                    <span class="inline">Password</span> Change your password regularly to keep your account secure
+                    <div class="bl">
+                        <button onclick="showPasswordChangeBox()" style="margin-left:600px;">
+                            Change&nbsp;password
+                        </button>
+                        <div id="passwordChangeBox" class="password-change-box" style="display: none; width:270px;">
+                            <span class="close-btn" onclick="closePasswordChangeBox()">X</span>
+                            <label style="color: #C39126; margin-top:-10px;">Current password</label>
+                            <input id="currentPasswordInput" type="password"
+                             placeholder="Enter current password" style="margin-bottom:4px;">
+                             <button onclick="togglePasswordVisibility('currentPasswordInput')" style=" background: transparent;margin-left:128px; margin-top:-32px;">
+                                <i class="fa fa-eye-slash" aria-hidden="true"></i>
+                            </button>
+                             <label style="color: #C39126;">New password</label>
+                             <input id="newPasswordInput" type="password" placeholder="Enter new password" oninput="checkPasswordLength()">
+                             <button onclick="togglePasswordVisibility('newPasswordInput')" style="margin-left:128px; background:transparent;">
+                                <i class="fa fa-eye-slash" aria-hidden="true"></i>
+                            </button>                    
+                             <span id="passwordLengthError" style="color: red; display: none;">at least 8 characters</span>
+                              <div style="margin-top:13px;">
+                                <button onclick="changePassword()" style="color:white; margin-top:0.25px; margin-left:-5px;width:70px; background: transparent; background-color: #C39126;">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <span class="inline">Active sessions</span>
+                    <p style="color:#37474F; margin-left: 130px; margin-top: -23px;"> 
+                        The process can take up to 10 minutes.
+                        <a href="sign out.html" class="ll" style="margin-left:190px;">Sign out</a>
+                    </p>
+                    <hr>
+                    <span class="inline">Delete account</span><p style="color:#37474F; margin-left:130px; margin-top: -22px;">Permanently delete your Egyptour.com account
+                    <a href="sign out.html" class="l" style=" margin-left:135px; ">Delete account</a></p>
+                    <hr>
+                    <button id="discardButton" style="margin-left:480px;">Discard</button>
+                    <button id="saveButton" style="margin-left:620px; margin-top: -29px;">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+            <div class="f" class="container" style="text-align: center;">
+                <img src="IMG_20240313_141307.jpg" width="170px" style="background-color: #fafafa;">
+                    <!-- <ul>
+                        <li> <a href="" class="light">Home</a></li>
+                        <li> <a href="" class="light">Pages</a></li>
+                        <li> <a href="" class="light">Our Team</a></li>
+                        <li>
+                            <a href="#" class="light" id="contact-link">Contact</a>
+                            <ul class="ex material-icons dropdown-icon" id="dropdown">
+                                <li class="ph"><i class="fas fa-phone"></i>+201004047028</li>
+                                <li class="em"><i class="far fa-envelope"></i> <a href="mailto:norhanswidan0@gmail.com">egyptour.team.eg@gmail.com</a></li>
+                            </ul>
+                          </li>
+                        <li> <a href="" class="light">About Us</a></li>
+                    </ul> -->
+                <p style="font-weight: 600; color: #C39126;">For better experience , download our mobile app</p>
+                <p style="color: #C39126;">Download the app by clicking the link below :</p>
+                <div class="parent d-flex justify-content-center">
+                    <div class="child1"  style="margin-top:-10px;">
+                        <img src="WhatsApp Image 2024-04-08 at 1.49.19 AM (2).jpeg" alt="" width="150px">
+                    </div>
+                    <div class="child2" style=" margin-top:-10px">
+                        <img src="WhatsApp Image 2024-04-08 at 1.49.19 AM.jpeg" alt="" width="150px" style="margin-top: 7px;">
+                    </div>
+                </div>
+                <hr width="50%" style="margin-left: 25%;">
+                <p style="color: #C39126; margin-bottom: -10px;">All copyrights are reserved by 2024 seniors</p>
+            </div>
+            <script>function login(button) {
+                // الشفرة التي تقوم بتسجيل الدخول هنا
+                console.log("User logged in successfully!");
+                
+                // يمكنك إضافة أي سلوك آخر بعد تسجيل الدخول هنا، مثل عرض المحتوى
+                document.getElementById('content').innerHTML = "مرحبًا، أنت الآن مسجل الدخول!";
+                
+                // يمكنك أيضًا استخدام العنصر الذي تم النقر عليه (الزر) لتغيير نصه مثلاً
+                button.innerHTML = "Logged In";
+            }
+            //1
+            document.getElementById('facebook-link').addEventListener('click', function() {
+                window.open('https://www.facebook.com/', '_blank');
+            });
+            document.getElementById('twitter-link').addEventListener('click', function() {
+                window.open('https://twitter.com/', '_blank');
+            });
+            document.getElementById('email-link').addEventListener('click', function() {
+                window.open('https://gmail.com', '_blank');
+            });
+            document.getElementById('whatsapp-link').addEventListener('click', function() {
+                window.open('https://whatsapp.com', '_blank');
+            });
+            document.getElementById('telegram-link').addEventListener('click', function() {
+                window.open('https://web.telegram.org/a/', '_blank');
+            });
+            //2
+            document.addEventListener("DOMContentLoaded", function() {
+                const viewBtn = document.querySelector(".view-modal");
+                const popup = document.querySelector(".popup");
+                const close = popup.querySelector(".close");
+                const field = popup.querySelector(".field");
+                const input = field.querySelector("input");
+                const copy = field.querySelector("button");
+              
+                viewBtn.addEventListener("click", function() {
+                  popup.classList.toggle("show");
+                });
+              
+                close.addEventListener("click", function() {
+                  viewBtn.click();
+                });
+              
+                copy.addEventListener("click", function() {
+                  input.select();
+                  document.execCommand("copy");
+                  this.innerText = "Copied!";
+                  setTimeout(() => {
+                    this.innerText = "Copy";
+                  }, 2000);
+                });
+              });</script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="security.js"></script>
+</body>
+</html>
